@@ -27,15 +27,16 @@
     <script src="assets/webauthn.js"></script> -->
 
     <h3>1. Register Fingerprint</h3>
-    <form method="POST" action="register.php">
-        <input type="text" name="name" placeholder="Enter Student Name" required>
-        <input type="text" name="student_id" placeholder="Student ID" required>
+    <form method="POST" id = "registerForm" action="register.php">
+        <input type="text" id = "student_name" name="name" placeholder="Enter Student Name" required><br>
+        <input type="text" id = "student_id" name="student_id" placeholder="Student ID" required><br>
+        <input type="email" id = "student_email" name="email" placeholder="Student Email" required><br>
         <button type="button" onclick="captureFingerprint('register')">Register Fingerprint</button>
         <input type="hidden" id="fingerprint_id" name="fingerprint_id">
     </form>
 
     <h3>2. Mark Attendance</h3>
-    <form method="POST" action="mark_attendance.php">
+    <form method="POST" id = "attendanceForm" action="mark_attendance.php">
         <button type="button" onclick="captureFingerprint('attendance')">Mark Attendance</button>
         <input type="hidden" id="attendance_fingerprint_id" name="fingerprint_id">
     </form>

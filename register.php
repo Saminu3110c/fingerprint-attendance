@@ -6,10 +6,11 @@ function encryptData($data, $key = 'secret_key') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars($_POST['name']);
+    $student_email = htmlspecialchars($_POST['student_email']);
     $student_id = htmlspecialchars($_POST['student_id']);
     $fingerprint_id = htmlspecialchars($_POST['fingerprint_id']);
 
-    if (!$name || !$student_id || !$fingerprint_id) {
+    if (!$name || !$student_email || !$student_id || !$fingerprint_id) {
         exit('Invalid Input');
     }
 
@@ -27,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $students[] = [
         'student_id' => $student_id,
         'name' => $name,
+        'email' => $student_email
         'fingerprint_id' => $encryptedFingerprint,
         'attendance' => []
     ];
